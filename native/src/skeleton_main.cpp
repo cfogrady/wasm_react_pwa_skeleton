@@ -5,14 +5,11 @@
  */
 #ifdef __EMSCRIPTEN__
 #include <emscripten.h>
+#endif
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-#else
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
-#endif
 
 /**
  * Inverse square root of two, for normalising velocity
@@ -36,6 +33,7 @@ enum input_state
  */
 struct context
 {
+    SDL_Window* window;
     SDL_Renderer *renderer;
 
     /**
@@ -138,7 +136,7 @@ void process_input(struct context *ctx)
                 else if (event.key.type == SDL_KEYUP)
                     ctx->active_state = (input_state) (ctx->active_state ^ RIGHT_PRESSED);
                 break;
-            case SDLK_ESCAPE:
+            case SDLK_q:
                 #ifdef __EMSCRIPTEN__
                 emscripten_cancel_main_loop();
                 #endif
@@ -197,15 +195,13 @@ void loop_handler(void *arg)
 }
 
 struct context initializeSDL() {
-    SDL_Window *window;
     struct context ctx;
 
     SDL_Init(SDL_INIT_VIDEO);
     TTF_Init();
 
-    SDL_CreateWindowAndRenderer(600, 400, 0, &window, &ctx.renderer);
-    SDL_SetRenderDrawColor(ctx.renderer, 255, 255, 255, 255);
-
+    SDL_CreateWindowAndRenderer(600, 400, SDL_WINDOW_BORDERLESS | SDL_WINDOW_ALLOW_HIGHDPI, &(ctx.window), &(ctx.renderer));
+    SDL_SetRenderDrawColor(ctx.renderer, 255, 0, 0, 255);
     get_owl_texture(&ctx);
     get_font_texture(&ctx);
     ctx.active_state = NOTHING_PRESSED;
@@ -219,28 +215,24 @@ struct context initializeSDL() {
 
 #ifdef __EMSCRIPTEN__
 #define BROWSER_REFRESH_RATE_FOR_FPS -1
-//#define SIMULATE_INFINITE_LOOP_TRUE 1
-static int SIMULATE_INFINITE_LOOP_TRUE = 1;
-extern "C" void mainWasm()
+#define SIMULATE_INFINITE_LOOP_TRUE 1
+int main()
 {
+    printf("Starting Native Skeleton Module...\n");
     struct context ctx = initializeSDL();
-    try {
-        /**
-         * Schedule the main loop handler to get 
-         * called on each animation frame.
-         * 1st arg = looped method
-         * 2nd arg = the context we are passing to the looped method
-         * 3rd arg = frames per second, -1 sets this to the browser's animation refresh rate
-         * 4th arg = determines whether an infinite loop is simulated of the loop is run asynchronously from this method
-         */
-        emscripten_set_main_loop_arg(loop_handler, &ctx, BROWSER_REFRESH_RATE_FOR_FPS, SIMULATE_INFINITE_LOOP_TRUE);
-    } catch (...) {
-        printf("Failure in main loop! Exiting...");
-    }
+    /**
+     * Schedule the main loop handler to get 
+     * called on each animation frame.
+     * 1st arg = looped method
+     * 2nd arg = the context we are passing to the looped method
+     * 3rd arg = frames per second, -1 sets this to the browser's animation refresh rate
+     * 4th arg = determines whether an infinite loop is simulated of the loop is run asynchronously from this method
+     */
+    emscripten_set_main_loop_arg(loop_handler, &ctx, BROWSER_REFRESH_RATE_FOR_FPS, SIMULATE_INFINITE_LOOP_TRUE);
 }
 #else
 #define DESIRED_FRAME_RATE 60
-#define MS_PER_FRAME = 1000 / DESIRED_FRAME_RATE
+#define MS_PER_FRAME 1000 / DESIRED_FRAME_RATE
 int main(int argc, char* args[])
 {
     SDL_Window* window = NULL;
@@ -252,5 +244,6 @@ int main(int argc, char* args[])
             SDL_Delay(endTime - SDL_GetTicks());
         }
     }
+    SDL_Quit();
 }
 #endif

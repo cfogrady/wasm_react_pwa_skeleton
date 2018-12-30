@@ -1,5 +1,5 @@
 # wasm_react_pwa_skeleton
-Skeleton project for using WebAssembly in a React project that can be used offline as a PWA
+Skeleton project for using SDL WebAssembly in a React project that can be used offline as a PWA
 
 This project was created using https://lyceum-allotments.github.io/2016/06/emscripten-and-sdl2-tutorial-part-7-get-naked-owl/ as a base for the WebAssembly.
 
@@ -10,3 +10,7 @@ This project was created using https://lyceum-allotments.github.io/2016/06/emscr
 2. Make sure you have a Web Server which can feed up files. The author of this document used Web Server for Chrome for simplicity.
 3. From the project directory you can run `make` which will compile the source.
 4. Point your Web Server to the project directory and load up the skeleton_project.html
+
+*OR*
+1. Make sure SDL2 is installed to your development environment
+2. From the project directory you can run `make skeleton_project` which will compile the source into an executable binary which can be run natively. This option has not yet been tested.

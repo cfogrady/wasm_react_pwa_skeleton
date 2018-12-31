@@ -1,3 +1,11 @@
 
 \.vscode/
 node/node_modules/
+
+*.bc
+
+*.data
+
+node/public/SkeletonModule\.js
+
+*.wasm

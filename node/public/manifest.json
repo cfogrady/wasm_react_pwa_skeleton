@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Skeleton WASM PWA",
+  "name": "Skeleton WASM PWA",
   "icons": [
     {
       "src": "favicon.ico",

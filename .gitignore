@@ -11,3 +11,5 @@ node/public/SkeletonModule\.js
 *.wasm
 
 node/build/
+
+node/package-lock\.json

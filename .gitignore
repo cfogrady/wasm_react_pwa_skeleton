@@ -4,12 +4,12 @@ node/node_modules/
 
 *.bc
 
-*.data
-
 node/public/SkeletonModule\.js
-
-*.wasm
 
 node/build/
 
 node/package-lock\.json
+
+node/public/SkeletonModule\.data
+
+node/public/SkeletonModule\.wasm

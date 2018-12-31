@@ -7,7 +7,7 @@ module.exports = {
     stripPrefix: 'build/',
     handleFetch: false,
     runtimeCaching: [{
-      urlPattern: /this\\.is\\.a\\.regex/,
-      handler: 'networkFirst'
+      urlPattern: /SkeletonModule.*/,
+      handler: 'fastest'
     }]
   }

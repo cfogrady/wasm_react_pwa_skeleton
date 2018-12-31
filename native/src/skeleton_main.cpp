@@ -200,7 +200,7 @@ struct context initializeSDL() {
     SDL_Init(SDL_INIT_VIDEO);
     TTF_Init();
 
-    SDL_CreateWindowAndRenderer(600, 400, SDL_WINDOW_BORDERLESS | SDL_WINDOW_ALLOW_HIGHDPI, &(ctx.window), &(ctx.renderer));
+    SDL_CreateWindowAndRenderer(600, 400, SDL_WINDOW_BORDERLESS, &(ctx.window), &(ctx.renderer));
     SDL_SetRenderDrawColor(ctx.renderer, 255, 0, 0, 255);
     get_owl_texture(&ctx);
     get_font_texture(&ctx);

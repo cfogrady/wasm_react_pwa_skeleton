@@ -1,0 +1,14 @@
+{
+  "main.css": "/wasm_react_pwa_skeleton/static/css/main.8e6994a2.chunk.css",
+  "main.js": "/wasm_react_pwa_skeleton/static/js/main.7e406382.chunk.js",
+  "main.js.map": "/wasm_react_pwa_skeleton/static/js/main.7e406382.chunk.js.map",
+  "static/js/1.5fb161e1.chunk.js": "/wasm_react_pwa_skeleton/static/js/1.5fb161e1.chunk.js",
+  "static/js/1.5fb161e1.chunk.js.map": "/wasm_react_pwa_skeleton/static/js/1.5fb161e1.chunk.js.map",
+  "runtime~main.js": "/wasm_react_pwa_skeleton/static/js/runtime~main.1f2e819d.js",
+  "runtime~main.js.map": "/wasm_react_pwa_skeleton/static/js/runtime~main.1f2e819d.js.map",
+  "static/media/logo.svg": "/wasm_react_pwa_skeleton/static/media/logo.5d5d9eef.svg",
+  "static/css/main.8e6994a2.chunk.css.map": "/wasm_react_pwa_skeleton/static/css/main.8e6994a2.chunk.css.map",
+  "index.html": "/wasm_react_pwa_skeleton/index.html",
+  "precache-manifest.3aa52fad6f56390902dcbb0a32ab3076.js": "/wasm_react_pwa_skeleton/precache-manifest.3aa52fad6f56390902dcbb0a32ab3076.js",
+  "service-worker.js": "/wasm_react_pwa_skeleton/service-worker.js"
+}

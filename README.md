@@ -42,4 +42,5 @@ The docs directory is just a copy of the build directory from the last run. This
 5. Point a webserver to the newly created build directory or copy the build directory to a location for the webserver
 
 *or*
+
 5. Install serve `npm install -g serve` (-g installs globally) and run `serve -s build`.

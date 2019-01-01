@@ -38,7 +38,8 @@ The docs directory is just a copy of the build directory from the last run. This
 1. Remove the homepage in the package.json or change it to the correct path for your webserver.
 2. Change the start_url in the manifest.json to "." or "/" if this is going to be the root of the webserver
 3. Navigate to the `${projectRoot}/node` directory
-3. Run `npm run build` to build the project.
-4. Point a webserver to the newly created build directory or copy the build directory to a location for the webserver
+4. Run `npm run build` to build the project.
+5. Point a webserver to the newly created build directory or copy the build directory to a location for the webserver
+
 *or*
-4. Install serve `npm install -g serve` (-g installs globally) and run `serve -s build`.
+5. Install serve `npm install -g serve` (-g installs globally) and run `serve -s build`.

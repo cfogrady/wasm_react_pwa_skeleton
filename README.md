@@ -32,6 +32,7 @@ This file is the template referenced in the package.json. Our SkeletonModule.* f
 ### manifest.json
 This file is the manifest used by Chrome on Desktops and Mobile to figure out the starting_url of the app, the icons, orientation, and how to open.
 
+
 The docs directory is just a copy of the build directory from the last run. This is so that github pages can serve up our PWA. Everything in the project is currently configured for github pages. If changing to a different server or server location the start_url and homepage settings discussed above will need to be changed.
 
 ## Run in Production Mode (PWA component)
